@@ -9,7 +9,7 @@ const tasks = (gulp, plugins) => {
   gulp.task('dev', plugins.sequence('lint', ['nodemon']));
 
   // Define default (what the build server will run)
-  gulp.task('default', plugins.sequence('lint', 'test'));
+  gulp.task('default', plugins.sequence('test'));
 };
 
 export default tasks;

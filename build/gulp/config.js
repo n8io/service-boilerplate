@@ -32,21 +32,25 @@ const cfg = {
       ]
     }
   },
-  test: {
+  ava: {
     src: [
       cwd('**/*.spec.js')
-    ]
+    ],
+    opts: {
+      verbose: !!process.env.GULP_DEBUG,
+      nyc: true
+    }
   }
-};
-
-cfg.env = {
-  isLocal: process.env.NODE_ENV === 'local',
-  isVerbose: !!process.env.GULP_DEBUG
 };
 
 cfg.dirs = {
   build: buildDir,
   src: srcDir
+};
+
+cfg.env = {
+  isLocal: process.env.NODE_ENV === 'local',
+  isVerbose: !!process.env.GULP_DEBUG
 };
 
 export default cfg;

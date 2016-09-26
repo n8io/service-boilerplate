@@ -1,5 +1,4 @@
 import express from 'express';
-import cwd from 'cwd';
 
 import controller from '../controllers/heartbeat';
 
