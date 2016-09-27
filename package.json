@@ -4,19 +4,25 @@
   "description": "A barebones nodejs repository with all the standard stuffs",
   "main": "index.js",
   "scripts": {
-    "build": "gulp",
+    "clean": "rm -rf node_modules/ && npm run clean:dusting",
+    "clean:dusting": "rm -rf .nyc_output/ coverage/ npm-debug.log",
     "dev": "gulp dev",
     "lint": "gulp lint",
     "start": "babel-node $npm_package_main",
-    "test": "gulp",
-    "test:watch": "ava **/*.spec.js -wv"
+    "test": "gulp test && nyc check-coverage --statements=95 --lines=95 --functions=95 --branches=75",
+    "test:watch": "ava -wv"
   },
   "engines": {
     "node": ">=6"
   },
   "ava": {
-    "require": "babel-register",
-    "babel": "inherit"
+    "babel": "inherit",
+    "files": [
+      "**/*.spec.js",
+      "!.nyc_output/",
+      "!coverage/"
+    ],
+    "require": "babel-register"
   },
   "repository": {
     "type": "git",
@@ -28,7 +34,7 @@
     "api"
   ],
   "author": "Nate Clark <n8@n8io.com>",
-  "license": "MIT",
+  "license": "UNLICENSED",
   "bugs": {
     "url": "https://github.com/n8io/service-boilerplate/issues"
   },

@@ -1,6 +1,7 @@
 /* eslint-disable no-process-env */
 import cwd from 'cwd';
 
+const pkgJson = require(cwd('package.json'));
 const buildDir = cwd('build');
 const srcDir = cwd('app');
 
@@ -15,7 +16,6 @@ const cfg = {
       ]
     },
     opts: {
-      config: cwd('.eslintrc.js'),
       formatter: 'stylish',
       fix: true
     }
@@ -23,19 +23,21 @@ const cfg = {
   nodemon: {
     opts: {
       exec: 'babel-node',
-      script: cwd(process.env['npm_package_main']),
+      quiet: true,
+      script: cwd(pkgJson.main),
       ext: 'js',
       watch: [
-        cwd(srcDir, '**/*.js'),
+        cwd('**/*.js'),
         cwd('.env*'),
         cwd('.eslint*')
-      ]
+      ],
+      ignore: [
+        // Add any adhoc globs
+      ].concat(pkgJson.ava.files)
     }
   },
   ava: {
-    src: [
-      cwd('**/*.spec.js')
-    ],
+    src: pkgJson.ava.files,
     opts: {
       verbose: !!process.env.GULP_DEBUG,
       nyc: true

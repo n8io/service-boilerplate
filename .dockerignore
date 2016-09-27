@@ -3,3 +3,5 @@ npm-debug.log
 coverage/
 .git/
 .env*
+!.env.example
+README.md

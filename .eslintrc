@@ -105,7 +105,7 @@
     "no-lonely-if": 0,
     "no-loop-func": 0,
     "no-mixed-requires": 0,
-    "no-mixed-spaces-and-tabs": 0,
+    "no-mixed-spaces-and-tabs": "error",
     "no-multi-spaces": 0,
     "no-multi-str": 0,
     "no-multiple-empty-lines": 0,
