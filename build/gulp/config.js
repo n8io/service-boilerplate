@@ -16,6 +16,7 @@ const cfg = {
       ]
     },
     opts: {
+      config: cwd('.eslintrc'),
       formatter: 'stylish',
       fix: true
     }
