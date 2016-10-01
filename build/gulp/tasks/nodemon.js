@@ -3,8 +3,6 @@ const task = (gulp, plugins, cfg) => {
 
   opts.tasks = ['lint'];
 
-  gulp.task('nodemon', nodemon);
-
   function nodemon() {
     const monitor = plugins.nodemon(opts);
 
@@ -13,6 +11,8 @@ const task = (gulp, plugins, cfg) => {
       process.exit(); // eslint-disable-line no-process-exit
     });
   }
+
+  gulp.task('nodemon', nodemon);
 };
 
 export default task;

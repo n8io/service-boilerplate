@@ -1,6 +1,11 @@
 import cwd from 'cwd';
 
 const eslintTasks = (gulp, plugins, cfg) => {
+  // Helper function for determining if a file's lint error/warning was automatically fixed
+  function isFixed(file) {
+    return file.eslint && file.eslint.fixed;
+  }
+
   gulp.task('eslint:src', () => {
     return gulp.src(cfg.eslint.src.src)
       .pipe(plugins.eslint(cfg.eslint.opts))
@@ -22,11 +27,6 @@ const eslintTasks = (gulp, plugins, cfg) => {
   });
 
   gulp.task('eslint', plugins.sequence('eslint:build', 'eslint:src'));
-
-  // Helper function for determining if a file's lint error/warning was automatically fixed
-  function isFixed(file) {
-    return file.eslint && file.eslint.fixed;
-  }
 };
 
 export default eslintTasks;
