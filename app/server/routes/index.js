@@ -13,14 +13,13 @@ const routes = app => {
     .readdirSync(__dirname)
     .filter(file => !file.match(/(index.js|\w+.spec.js)/, 'ig'))
     .forEach(file => {
-      const filePath  = path.join(__dirname, file.split('.js').join(''));
+      const filePath = path.join(__dirname, file.split('.js').join(''));
 
       // If route isn't in the list already, lets add it to the list
       if (routePaths.indexOf(filePath) === -1) {
         routePaths.push(filePath);
       }
-    })
-    ;
+    });
 
   // Finally register the routes with the app
   routePaths.forEach(routePath => require(routePath).default(app));

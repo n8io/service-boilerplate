@@ -2,7 +2,7 @@ import fs from 'fs';
 import cwd from 'cwd';
 
 const tasks = (gulp, plugins, cfg) => {
-  fs.readdirSync(__dirname).forEach(function (file) {
+  fs.readdirSync(__dirname).forEach(function(file) {
     if (file.toLowerCase() === 'index.js') {
       return;
     }

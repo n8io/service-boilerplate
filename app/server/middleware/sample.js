@@ -1,4 +1,4 @@
-const sampleMiddleware = app => {
+const sampleMiddleware = app => { // eslint-disable-line no-unused-vars
 
 };
 

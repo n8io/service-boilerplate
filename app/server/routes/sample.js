@@ -1,11 +1,10 @@
 import express from 'express';
 
 const routes = app => {
-  const router = express.Router();
+  const router = express.Router(); // eslint-disable-line new-cap
 
   router
-    .get('/', get)
-    ;
+    .get('/', get);
 
   app.use('/sample', router);
 };

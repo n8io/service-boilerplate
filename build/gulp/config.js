@@ -16,10 +16,9 @@ const cfg = {
       ]
     },
     opts: {
-      config: cwd('.eslintrc'),
-      formatter: 'stylish',
-      fix: true
-    }
+      // configFile: cwd('./.eslintrc.js')
+    },
+    formatter: 'stylish'
   },
   nodemon: {
     opts: {
@@ -55,5 +54,8 @@ cfg.env = {
   isLocal: process.env.NODE_ENV === 'local',
   isVerbose: !!process.env.GULP_DEBUG
 };
+
+// Force automatically fixing lint issues
+cfg.eslint.opts.fix = cfg.env.isLocal;
 
 export default cfg;

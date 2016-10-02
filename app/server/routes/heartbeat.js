@@ -3,11 +3,10 @@ import express from 'express';
 import controller from '../controllers/heartbeat';
 
 const routes = app => {
-  const router = express.Router();
+  const router = express.Router(); // eslint-disable-line new-cap
 
   router
-    .get('/', get)
-    ;
+    .get('/', get);
 
   app.use('/heartbeat', router);
 };
