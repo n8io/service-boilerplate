@@ -22,6 +22,10 @@ const cfg = {
   },
   nodemon: {
     opts: {
+      env: {
+        EXPRESS_LOG_ENABLE: true,
+        EXPRESS_LOG_FORMAT: 'dev'
+      },
       exec: 'babel-node',
       quiet: true,
       script: cwd(pkgJson.main),
@@ -34,13 +38,6 @@ const cfg = {
       ignore: [
         // Add any adhoc globs
       ].concat(pkgJson.ava.files)
-    }
-  },
-  ava: {
-    src: pkgJson.ava.files,
-    opts: {
-      verbose: !!process.env.GULP_DEBUG,
-      nyc: true
     }
   }
 };
