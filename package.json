@@ -9,7 +9,7 @@
     "dev": "gulp dev",
     "lint": "gulp lint",
     "start": "babel-node $npm_package_main",
-    "test": "gulp test && nyc check-coverage --statements=95 --lines=95 --functions=95 --branches=75",
+    "test": "gulp lint && nyc ava",
     "test:watch": "ava -wv"
   },
   "engines": {
@@ -23,6 +23,22 @@
       "!coverage/"
     ],
     "require": "babel-register"
+  },
+  "nyc": {
+    "check-coverage": true,
+    "lines": 95,
+    "statements": 95,
+    "functions": 95,
+    "branches": 80,
+    "include": [
+      "**/*.js",
+      "**/*.spec.js"
+    ],
+    "reporter": [
+      "lcov",
+      "text-summary",
+      "html"
+    ]
   },
   "repository": {
     "type": "git",
@@ -44,7 +60,7 @@
     "cwd": "^0",
     "dotenv-safe": "^2",
     "express": "^4",
-    "lodash": "^4"
+    "morgan": "^1"
   },
   "devDependencies": {
     "ava": "^0",
@@ -56,9 +72,9 @@
     "babel-preset-node6": "^11",
     "babel-register": "^6",
     "eslint": "^3",
-    "eslint-config-standard": "^6.2.0",
-    "eslint-plugin-promise": "^2.0.1",
-    "eslint-plugin-standard": "^2.0.1",
+    "eslint-config-standard": "^6",
+    "eslint-plugin-promise": "^2",
+    "eslint-plugin-standard": "^2",
     "estraverse-fb": "^1",
     "gulp": "^3",
     "gulp-ava": "^0",

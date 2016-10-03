@@ -6,11 +6,11 @@ const routes = app => {
   router
     .get('/', get);
 
-  app.use('/sample', router);
+  app.use('/', router);
 };
 
-function get(req, res, next) {
-  next();
+function get(req, res) { // eslint-disable-line no-unused-vars
+  return res.send('OK');
 }
 
 export default routes;
