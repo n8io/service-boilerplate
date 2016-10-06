@@ -8,7 +8,7 @@ A barebones nodejs repository with all the standard stuffs
 	1. Where are test files located in relation to their implementations? Under `tests/` or modularly next to logic? (modular)
 	1. What testing framework should be used? (AVA)
 1. Code coverage
-	1. What are the minimum acceptable levels? Statements, functions, lines, branches (95, 95, 95, 75)
+	1. What are the minimum acceptable levels? Statements, functions, lines, branches (95, 95, 95, 80)
 	1. Ideally monitored by a third party service (codecov)
 1. Linting
 	1. Ideally this is a one of the first shared libraries of a code base (eslint)

@@ -3,7 +3,8 @@ import path from 'path';
 
 const routes = app => {
   const prioritizedRoutes = [
-    './heartbeat' // the relative path to the middleware
+    // the relative path to the middleware
+    './heartbeat'
   ];
 
   // Normalize to absolute paths
