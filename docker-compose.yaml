@@ -1,6 +1,6 @@
 ---
-  web:
-    image: "service-boilerplate"
+  service:
+    build: .
     environment:
       - "HOST=0.0.0.0"
       - "PORT=8080"

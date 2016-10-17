@@ -1,14 +1,18 @@
-/* eslint-disable no-process-env */
 import loggerMiddleware from 'morgan';
+import config from '../../config';
 
 const logger = app => {
-  const isEnabled = ['false', '0'].indexOf(process.env.EXPRESS_LOG_ENABLE || 'false') === -1;
-  const logFormat = process.env.EXPRESS_LOG_FORMAT || 'tiny';
+  const {
+    enabled, // Kill switch
+    format, // 'tiny', 'dev', etc (A Morgan defined key or custom string)
+    minimumHttpStatusCode // The minimum status code that should log
+  } = config.express.log;
+
   const options = {
-    skip: (req, res) => res.statusCode < 400 || !isEnabled
+    skip: (req, res) => res.statusCode < minimumHttpStatusCode || !enabled
   };
 
-  app.use(loggerMiddleware(logFormat, options));
+  app.use(loggerMiddleware(format, options));
 };
 
 export default logger;

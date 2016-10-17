@@ -4,4 +4,5 @@ coverage/
 .git/
 .env*
 !.env.example
+.nyc_output/
 README.md

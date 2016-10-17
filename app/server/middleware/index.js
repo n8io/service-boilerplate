@@ -4,6 +4,8 @@ import path from 'path';
 const middleware = app => {
   const prioritizedMiddleware = [
     // the relative path to the middleware, E.g. ./my-customer-mw
+    './cors',
+    './bodyParser'
   ];
 
   // Normalize to absolute paths

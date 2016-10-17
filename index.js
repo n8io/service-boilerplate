@@ -1,15 +1,23 @@
 /* eslint-disable no-process-env */
 import app from './app/server';
+import config from './app/config';
 
-const server = app.listen(process.env.PORT, process.env.HOST, () => {
+const {
+  name: appName,
+  version: appVersion,
+  host,
+  port
+} = config.app;
+
+const server = app.listen(port, host, () => {
   const actualHost = server.address().address;
   const actualPort = server.address().port;
 
   console.log('%s@%s listening at http://%s:%s on Node', // eslint-disable-line no-console
-    process.env.npm_package_name,
-    process.env.npm_package_version,
+    appName,
+    appVersion,
     actualHost,
     actualPort,
-    process.version
+    config.node.version
   );
 });

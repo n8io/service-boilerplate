@@ -4,6 +4,8 @@
   "description": "A barebones nodejs repository with all the standard stuffs",
   "main": "index.js",
   "scripts": {
+    "docker:build": "./build/docker/build.sh",
+    "docker:dev": "npm run docker:build && ./build/docker/dev.sh",
     "clean": "rm -rf node_modules/ && npm run clean:dusting",
     "clean:dusting": "rm -rf .nyc_output/ coverage/ npm-debug.log",
     "dev": "gulp dev",
@@ -32,8 +34,13 @@
     "functions": 95,
     "branches": 80,
     "include": [
-      "**/*.js",
-      "**/*.spec.js"
+      "**/*.js"
+    ],
+    "exclude": [
+      "**/*.spec.js",
+      "app/config/**",
+      "coverage",
+      "node_modules"
     ],
     "reporter": [
       "lcov",
@@ -57,10 +64,13 @@
   },
   "homepage": "https://github.com/n8io/service-boilerplate#readme",
   "dependencies": {
+    "babel": "^6",
     "body-parser": "^1",
+    "cors": "^2",
     "dotenv-safe": "^2",
     "express": "^4",
     "morgan": "^1",
+    "pm2": "^2.0.18",
     "swagger": "^0.7.5",
     "swagger-jsdoc": "^1.7.0"
   },
