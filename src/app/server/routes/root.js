@@ -12,9 +12,9 @@ const routes = app => {
 };
 
 function get(req, res) {
-  const data = controller.get();
+  const rootData = controller.get();
 
-  return res.send(data);
+  return res.send(rootData);
 }
 
 export default routes;
