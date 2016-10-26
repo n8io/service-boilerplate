@@ -2,7 +2,7 @@
   "name": "service-boilerplate",
   "version": "1.0.0",
   "description": "A barebones nodejs repository with all the standard stuffs",
-  "main": "src/index.js",
+  "main": "src",
   "scripts": {
     "build": "npm run clean:dusting && npm run build:babel",
     "clean": "npm run clean:dusting && npm run clean:modules",
@@ -76,7 +76,8 @@
     "cwd": "^0",
     "dotenv-safe": "^2",
     "express": "^4",
-    "morgan": "^1"
+    "morgan": "^1",
+    "source-map-support": "^0"
   },
   "devDependencies": {
     "ava": "^0",

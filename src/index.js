@@ -1,4 +1,7 @@
 /* eslint-disable no-process-env */
+import {install} from 'source-map-support';
+install(); // Enable source maps
+
 import app from './app/server';
 import config from './app/config';
 
