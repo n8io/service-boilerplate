@@ -1,7 +1,7 @@
 const controller = {get};
 
 function get() {
-  return 'OK';
+  return 'Awwww yeah!';
 }
 
 export default controller;
