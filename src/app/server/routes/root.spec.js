@@ -14,5 +14,5 @@ test('GET / should return a string "OK"', t =>
   request(app)
     .get('/')
     .expect('Content-Type', /text/)
-    .then(res => t.true(res.text === 'Awwww yeah!'))
+    .then(res => t.true(res.text === 'OK'))
 );
